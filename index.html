@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDSC Blogs | Home</title>
+    <link rel="icon" type="image/x-icon" href="ASSETS/icon.png">
+    <link rel="stylesheet" href="index_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body>
+    <div id="loading-screen">
+        <video id="loading-animation" autoplay muted>
+          <source src="ASSETS/Animation - 1729674126034.mp4" type="video/mp4">
+        </video>
+      </div>
+    <header>
+        <div class="container">
+            <nav>
+                <ul class="nav-items">
+                    <li><a href="index.html" class="logo" >Google Developer Club <span>Blogs</span></a></li>
+                 
+                    <li class="nav-link"><a href="about.html">About</a></li>
+                    <li class="nav-link"><a href="events.html">Events</a></li>
+                    <li class="nav-link"><a href="projects.html">Projects</a></li>
+                    <li class="nav-link"><a href="contact_hu.html">Contact</a></li>
+                    <li class="nav-link"><a href="create_blog.html" class="login">New Post</a></li>
+                   
+                </ul>
+            </nav>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Search..." disabled>
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          </div>
+    </header>
+
+    <section class="home">
+        <div class="container">
+            <h1 class="home-title">Google Developer Student Club CIT</h1>
+            <br>
+            <div class="youtube-video-container">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/UGE13GR9_CU?si=T_1PWOJBrucc7bmk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"   
+       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>   
+      
+            </div>
+            </div>
+
+    </section>
+
+    <section class="recent-articles">
+        <div class="container">
+            <h2>Recent Articles</h2>
+            <div class="recent-articles-container">
+                <!-- Recent post will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="container featured">
+        <h2>All Articles</h2>
+        <div class="all-posts-container">
+            <!-- All posts will be dynamically loaded here without images -->
+        </div>
+    </section>
+
+    <footer>
+        
+        <div class="container">
+            <li><a target="_blank" href="contact_hu.html" id="follow_a"><i class="fa-solid fa-message"></i>&nbsp; Contact us</a></li>
+            <br>
+            <h2>Follow Us</h2>
+            
+            <ul>
+                <li><a target="_blank" href="https://www.instagram.com" id="follow_a"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a target="_blank" href="https://chat.whatsapp.com/ISzPWBcam0C4w8c4R7bbr6" id="follow_a"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a></li>
+
+                <li><a target="_blank" href="https://www.linkedin.com" id="follow_a"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </div>
+       
+    </footer>
+
+    <script>
+       
+    const loadingScreen = document.getElementById('loading-screen');
+        const loadingAnimation = document.getElementById('loading-animation');
+        const mainContent = document.getElementById('main-content');
+    
+        loadingAnimation.addEventListener('ended', () => {
+          loadingScreen.style.display = 'none';
+          mainContent.style.display = 'block';
+        });
+        function toggleMenu() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                if (link.style.display === "none" || !link.style.display) {
+                    link.style.display = "block"; // Show menu items
+                } else {
+                    link.style.display = "none";  // Hide menu items
+                }
+            });
+        }
+
+       // Function to load the most recent post
+function loadRecentPosts() {
+    fetch('http://localhost:5000/api/posts') // Fetch all posts
+        .then(response => response.json())
+        .then(posts => {
+            // Sort posts by publishedDate in descending order (most recent first)
+            posts.sort((a, b) => new Date(b.publishedDate) - new Date(a.publishedDate));
+
+            const recentArticlesContainer = document.querySelector('.recent-articles-container');
+            
+            // Display only the most recent post
+            const post = posts[0]; // The most recent post
+            const postElement = document.createElement('div');
+            postElement.classList.add('post-box');
+            postElement.innerHTML = `
+                <h3 class="post-title">${post.title}</h3>
+                <p class="post-date">${new Date(post.publishedDate).toLocaleDateString()}</p>
+                <p class="post-description">${post.description}</p>
+                <button class="read-more-btn" onclick="loadPost('${post._id}')">Read More</button>
+            `;
+            recentArticlesContainer.appendChild(postElement);
+        })
+        .catch(error => console.error('Error loading recent posts:', error));
+}
+
+// Call the function to load recent post
+loadRecentPosts();
+
+
+        // Function to load all posts without images
+        function loadAllPosts() {
+            fetch('http://localhost:5000/api/posts') // Replace with your actual API endpoint
+                .then(response => response.json())
+                .then(posts => {
+                    const allPostsContainer = document.querySelector('.all-posts-container');
+                    posts.forEach(post => {
+                        const postElement = document.createElement('div');
+                        postElement.classList.add('post-box');
+                        postElement.innerHTML = `
+                            <h3 class="post-title">${post.title}</h3>
+                            <p class="post-date">${new Date(post.publishedDate).toLocaleDateString()}</p>
+                            <p class="post-description">${post.description}</p>
+                            <button class="read-more-btn" onclick="loadPost('${post._id}')">Read More</button>
+                        `;
+                        allPostsContainer.appendChild(postElement);
+                    });
+                })
+                .catch(error => console.error('Error loading all posts:', error));
+        }
+
+        // Call the functions to load recent and all posts
+        loadRecentPosts();
+        loadAllPosts();
+
+        // Adjust loadPost to redirect using the post ID
+        function loadPost(postId) {
+            window.location.href = `post.html?id=${postId}`;
+        }
+    </script>
+</body>
+
+</html>

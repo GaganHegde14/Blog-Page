@@ -1,0 +1,123 @@
+/* Import Google Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;1,400&display=swap');
+
+/* Global styles */
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  box-sizing: border-box;
+}
+
+/* Root variables (Google colors) */
+:root {
+  --primary-color: #4285F4;  /* Google Blue */
+  --secondary-color: #EA4335; /* Google Red */
+  --text-color: #202124;      /* Google Grey */
+  --bg-color: #fff;           /* White */
+}
+
+/* Image class for styling images */
+.image {
+  height: 100px;
+  width: 100%;
+}
+
+/* Styling for selection (highlighted text) */
+::selection {
+  color: var(--bg-color);
+  background: var(--secondary-color);
+}
+
+/* Reset anchor tag styles */
+a {
+  text-decoration: none;
+}
+
+/* Remove list style for list items */
+li {
+  list-style: none;
+}
+
+/* Ensure images fill their containers */
+img {
+  width: 100%;
+}
+
+/* Add some padding to sections */
+section {
+  padding: 3rem 0 2rem;
+}
+
+/* Set container max-width and center alignment */
+.container {
+  max-width: 1068px;
+  margin: auto;
+  width: 100%;
+}
+
+/* Set default anchor tag color */
+a {
+  color: #000;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+}
+
+/* Add shadow to header on scroll */
+header.shadow {
+  background: var(--bg-color);
+  box-shadow: 0 1px 4px hsl(0 4% 14% / 10%);
+  transition: 0.5s;
+}
+
+/* Update logo color on shadowed header */
+header.shadow .logo {
+  color: var(--text-color);
+}
+
+/* Style navigation bar */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+}
+
+/* Style logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Style login button */
+.login {
+  padding: 8px 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 4px;
+  background: var(--secondary-color);
+  color: var(--bg-color);
+}
+
+/* Hover effect for login button */
+.login:hover {
+  background: hsl(199, 98%, 56%);
+  transition: 0.5s;
+}
+
+/* Hero section */
+.home {
+  width: 100%;
+  min-height: 440px;
+  background-color: var(--primary-color); /* Use primary color for background
+}

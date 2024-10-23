@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDSC | New Post</title>
+    <link rel="icon" type="image/x-icon" href="ASSETS/icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+    <link rel="icon" type="image/x-icon" href="ASSETS/icon.png">
+    <link rel="stylesheet" href="post.css">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4285F4;
+            --secondary-color: #EA4335;
+            --text-color: #202124;
+            --bg-color: #fff;
+        }
+
+        body {
+            background-color: #f1f1f1;
+            margin: 0;
+            padding-top: 80px; /* Adjust this based on your header height */
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 200;
+            height: 100px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--bg-color);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-right: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--bg-color);
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Google Developer Club <span>Blogs</span></a>
+            <nav>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact_hu.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container form-container">
+        <h2>Create a New Post</h2>
+        <br>
+        <input type="text" id="post-title-input" placeholder="Post Title" required>
+        <input type="text" id="post-author-input" placeholder="Author" required>
+        <textarea id="post-description-input" placeholder="Post Description (Short Summary)" rows="3" required></textarea>
+        <textarea id="post-content-input" placeholder="Full Post Content" rows="5" required></textarea>
+        <input type="file" id="post-image-input" accept="image/*">
+        <button id="create-post-btn">Create Post</button>
+    </div>
+
+    <footer>
+        
+        <div class="container">
+            <li><a target="_blank" href="contact_hu.html" id="follow_a"><i class="fa-solid fa-message"></i>&nbsp; Contact us</a></li>
+            <br>
+            <h2>Follow Us</h2>
+            
+            <ul>
+                <li><a target="_blank" href="https://www.instagram.com" id="follow_a"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a target="_blank" href="https://chat.whatsapp.com/ISzPWBcam0C4w8c4R7bbr6" id="follow_a"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a></li>
+
+                <li><a target="_blank" href="https://www.linkedin.com" id="follow_a"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("create-post-btn").addEventListener("click", function() {
+            const title = document.getElementById("post-title-input").value;
+            const author = document.getElementById("post-author-input").value;
+            const description = document.getElementById("post-description-input").value;
+            const content = document.getElementById("post-content-input").value;
+
+            const newPost = {
+                title: title,
+                author: author,
+                description: description,
+                content: content,
+                publishedDate: new Date().toISOString() // Automatically set the date
+            };
+
+            fetch('http://localhost:5000/api/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newPost)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Post created successfully!");
+                window.location.href = 'index.html'; // Redirect back to the homepage
+            })
+            .catch(error => {
+                console.error('Error creating post:', error);
+            });
+        });
+    </script>
+</body>
+</html>
