@@ -18,9 +18,9 @@ This is a simple blog application that allows users to create, view, and read bl
 
 # Tech Stack
 
-Frontend: HTML, CSS, JavaScript
-Backend: Node.js, Express
-Database: MongoDB (Atlas or Local)
+1.Frontend: HTML, CSS, JavaScript
+2.Backend: Node.js, Express
+3.Database: MongoDB (Atlas or Local)
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -28,34 +28,13 @@ Database: MongoDB (Atlas or Local)
 
 Make sure you have the following installed:
 
-Node.js: Install Node.js
-MongoDB: Set up MongoDB Atlas or install it locally.
+1.Node.js: Install Node.js
+2.MongoDB: Set up MongoDB Atlas or install it locally.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-blog-app/
-│
-├── models/
-│   └── Post.js          # Mongoose schema for the blog posts
-│
-├── routes/
-│   └── postRoutes.js    # Express routes for handling blog posts (CRUD)
-│
-├── public/
-│   ├── index.html       # Home page showing recent and all blogs
-│   ├── create_blog.html # Form for creating new blog posts
-│   ├── post.html        # Page to dynamically load a single post
-│   ├── projects.html/events.html        # Pages which can be used in future if needed
-│   ├── contact_hu.html        # Page to contact owners if needed (currenty disabled)
-│   ├── css/
-│   │   └── styles.css   # Custom styles for the pages
-│   └── assets/
-│       └── icon.png     # Icon and other assets
-│
-├── server.js            # Main server file
-├── README.md            # Project documentation
-├── package.json         # Project dependencies
-└── .env                 # Environment variables (MongoDB connection string)
+![image](https://github.com/user-attachments/assets/a5508393-fdb4-4b7e-b3f6-d7847f66d8c4)
+
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -72,7 +51,7 @@ blog-app/
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-The frontend communicates with the backend via fetch API calls.
-Posts are dynamically loaded onto the home page and individual post pages using JavaScript.
+1.The frontend communicates with the backend via fetch API calls.
+2.Posts are dynamically loaded onto the home page and individual post pages using JavaScript.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
