@@ -63,7 +63,7 @@
     <section class="container featured">
         <h2>All Articles</h2>
         <div class="all-posts-container">
-            <!-- All posts will be dynamically loaded here without images -->
+            <!-- All posts will be dynamically loaded here -->
         </div>
     </section>
 
@@ -94,17 +94,6 @@
           loadingScreen.style.display = 'none';
           mainContent.style.display = 'block';
         });
-        function toggleMenu() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            navLinks.forEach(link => {
-                if (link.style.display === "none" || !link.style.display) {
-                    link.style.display = "block"; // Show menu items
-                } else {
-                    link.style.display = "none";  // Hide menu items
-                }
-            });
-        }
 
        // Function to load the most recent post
 function loadRecentPosts() {
