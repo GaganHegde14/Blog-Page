@@ -309,3 +309,28 @@ footer ul li a:hover {
   padding-top: 10px; /* Reduce padding at the top of recent articles */
   margin-top: 20px;  /* You can also reduce margin if there's extra space */
 }
+
+.center-container {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+/* Style the button */
+.whatsapp-button {
+  background-color: #25D366;
+  color: white;
+  padding: 5px 3px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.whatsapp-button:hover {
+  background-color: #20b259;
+}
