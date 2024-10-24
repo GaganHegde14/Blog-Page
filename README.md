@@ -56,3 +56,7 @@ Make sure you have the following installed:
 2.Posts are dynamically loaded onto the home page and individual post pages using JavaScript.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#Screenshots
+
