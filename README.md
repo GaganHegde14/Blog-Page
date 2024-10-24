@@ -58,7 +58,7 @@ Make sure you have the following installed:
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-#Screenshots
+# Screenshots
 
 ![Screenshot 2024-10-24 110610](https://github.com/user-attachments/assets/908ff632-6ccc-4d6a-a94e-6ee8a4df89bc)
 ![Screenshot 2024-10-24 110534](https://github.com/user-attachments/assets/4cf2b080-07ab-48d0-92e1-199aad8cec4d)
@@ -66,7 +66,7 @@ Make sure you have the following installed:
 
 ![image](https://github.com/user-attachments/assets/2a25723d-c1c9-4f32-ba01-fd19178d36f5)
 
-#Screen Recording 
+# Screen Recording 
 
 https://drive.google.com/file/d/1-vg0xutPQmeL0EQ9E8gy8P7ge9hIX0Ka/view?usp=sharing
 
