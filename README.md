@@ -60,3 +60,16 @@ Make sure you have the following installed:
 
 #Screenshots
 
+![image](https://github.com/user-attachments/assets/2a25723d-c1c9-4f32-ba01-fd19178d36f5)
+![Screenshot 2024-10-24 110534](https://github.com/user-attachments/assets/4cf2b080-07ab-48d0-92e1-199aad8cec4d)
+![Screenshot 2024-10-24 110549](https://github.com/user-attachments/assets/cffc07bc-3db8-4c7c-9bfd-e8f366959906)
+![Screenshot 2024-10-24 110610](https://github.com/user-attachments/assets/908ff632-6ccc-4d6a-a94e-6ee8a4df89bc)
+
+#Screen Recording 
+
+https://drive.google.com/file/d/1-vg0xutPQmeL0EQ9E8gy8P7ge9hIX0Ka/view?usp=sharing
+
+
+
+
+
